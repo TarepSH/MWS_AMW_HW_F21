@@ -28,6 +28,14 @@ gem 'jbuilder', '~> 2.7'
 #gem for heorku devpole
 gem "pg"
 
+#gem for user singup and login
+gem 'devise'
+
+#gem for bootstrap 
+gem "bootstrap"
+gem "jquery-rails"
+
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
