@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<h2>
+  <%= @movie.title %>
+</h2>
+<h5>  <%= @movie.relese %> </h5>
+<br>
+ <img src="https://www3.nd.edu/~cmc/teaching/cse30332/images/<%= @movie.poster %>">
+<br>
+
+
+  <h4>Overview:</h4>
+<p>  <%= @movie.overview %></p>
+
+
+<p>
+  <strong>Revenue:</strong>
+  <%= @movie.revenue %>
+</p>
+
+<p>
+  <strong>Runtime:</strong>
+  <%= @movie.runtime %>
+</p>
+
+<p>
+  <strong>Budget:</strong>
+  <%= @movie.budget %>
+</p>
+
+<p>
+  <strong>Language:</strong>
+  <%= @movie.language %>
+</p>
+
+<p>
+  <strong>Vote:</strong>
+  <%= @movie.vote %>
+</p>
+
+<%= link_to 'Edit', edit_movie_path(@movie) %> |
+<%= link_to 'Back', movies_path %>
+
+
+<h2> Recommendation Movies </h2>
+
+
+    <% @moviesRe.each_slice(4) do |movie3| %>
+  <div class="row">
+          <% movie3.each do |movie|%>
+
+    <div class="col-sm ">
+        <div  class="w-100 p-3">
+        <img src="https://www3.nd.edu/~cmc/teaching/cse30332/images/<%= movie.poster %>">
+       <br><h3> <%= movie.title %></h3>
+        <p><%= movie.relese %></p> 
+        <h5><%= movie.vote %> vote </h5>        
+        <%= link_to 'More', movie %>
+        </div>   
+    </div>
+          <% end %>
+
+  </div>    
+    <% end %>

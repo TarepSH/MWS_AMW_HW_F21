@@ -35,6 +35,10 @@ gem 'devise'
 gem "bootstrap"
 gem "jquery-rails"
 
+#gem for rails admin
+gem 'rails_admin', '~> 2.0'
+gem "rails_admin_import", "~> 2.2"
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
