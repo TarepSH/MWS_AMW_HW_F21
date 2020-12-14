@@ -4,21 +4,24 @@ class MoviesController < ApplicationController
   # GET /movies
   # GET /movies.json
   def index
-
-    @movies = Movie.order(Arel.sql('RANDOM()')).limit(10)
+        pageSize = 2
+        @limtPageSize = Movie.count / pageSize
+    @page = (params[:page] || 0).to_i
+    @movies = Movie.order(Arel.sql('RANDOM()')).offset(pageSize * @page).limit(pageSize)
 
   end
 
   # GET /movies/1
   # GET /movies/1.json
   def show
-
         @moviesRe = Movie.where(vote: @movie.vote-1..@movie.vote+1).order(Arel.sql('RANDOM()')).limit(4)
   end
 
   # GET /movies/new
   def new
     @movie = Movie.new
+   # @order = Order.create.(movie_id: params[:post_id], user_id: params[:user_id] )
+
   end
 
   # GET /movies/1/edit

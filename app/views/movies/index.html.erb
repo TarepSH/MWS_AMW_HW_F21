@@ -28,7 +28,17 @@
   
 </div>
 
+<div>
+   <ul class="pager">
+      <li class="previous <%= @page == 0 ? 'disabled' : '' %>">
+          <%= link_to_if @page > 0, "<< Previous", movies_path(page: @page - 1) %>
+      </li>
 
+      <li class="next <%= @page == @limtPageSize ? 'disabled' : '' %>">
+          <%= link_to "Next >>", movies_path(page: @page + 1) %>
+      </li>
+   </ul>
+</div>
 
 
 
