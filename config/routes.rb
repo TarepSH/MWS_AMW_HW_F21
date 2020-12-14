@@ -11,4 +11,6 @@ resources :movies do
     resources :orders
   end
 
+  get 'search', to: 'movies#search'
+
 end

@@ -11,6 +11,11 @@ class MoviesController < ApplicationController
 
   end
 
+  def search
+    @movies = Movie.where("title LIKE ?", "%" + params[:q] + "%") 
+  end
+
+
   # GET /movies/1
   # GET /movies/1.json
   def show

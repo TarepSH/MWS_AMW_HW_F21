@@ -17,8 +17,6 @@
         <p><%= movie.overview.truncate_words(30) %><p>
         
         <%= link_to 'More', movie %>
-        <%= link_to 'Edit', edit_movie_path(movie) %>
-        <%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %>
         </div>   
     </div>
           <% end %>
