@@ -4,7 +4,7 @@ class MoviesController < ApplicationController
   # GET /movies
   # GET /movies.json
   def index
-        pageSize = 2
+        pageSize = 12
         @limtPageSize = Movie.count / pageSize
     @page = (params[:page] || 0).to_i
     @movies = Movie.order(Arel.sql('RANDOM()')).offset(pageSize * @page).limit(pageSize)
