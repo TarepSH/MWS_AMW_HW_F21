@@ -40,8 +40,10 @@
 <br><br>
 <h2>ORDER</h2>
 
-<% if user_signed_in? %>
-<%= form_with model: [@movie, @movie.orders.build] do |form| %>
+<% if user_signed_in? && current_user.orders.where(movie_id: @movie.id).present? %>
+  <p>you already order it this movie</p>
+<% elsif user_signed_in? %>
+  <%= form_with model: [@movie, @movie.orders.build] do |form| %>
   <p>
     <%= form.hidden_field :movie_id %>
     <%= form.hidden_field :user_id, :value => current_user.id %>
@@ -49,11 +51,12 @@
   <p>
     <%= form.submit data: { confirm: 'Do you want to confirm you order' } %>
   </p>
-<% end %>
+  <% end %>
 
 <% else %>
   <p>you need to sing in first, so you can order this movie</p>
 <% end %>
+
 <br>
  <br>
 
