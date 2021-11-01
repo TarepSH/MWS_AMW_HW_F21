@@ -20,6 +20,7 @@ class MoviesController < ApplicationController
   # GET /movies/1.json
   def show
         @moviesRe = Movie.where(vote: @movie.vote-1..@movie.vote+1).order(Arel.sql('RANDOM()')).limit(4)
+        @reviews = Review.all
   end
 
   # GET /movies/new

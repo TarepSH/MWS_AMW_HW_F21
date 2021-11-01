@@ -41,7 +41,30 @@
 <h2>ORDER</h2>
 
 <% if user_signed_in? && current_user.orders.where(movie_id: @movie.id).present? %>
-  <p>you already order it this movie</p>
+  <p>you already order it this movie, you can comment and rating your movie: </p>
+
+
+  <%= form_with model: [@movie, @movie.reviews.build] do |form| %>
+  <p>
+    <%= form.hidden_field :movie_id %>
+    <%= form.hidden_field :user_id, :value => current_user.id%>
+  <div class="field">
+    <%= form.label "Rating from 1 to 5" %>
+    <%= form.number_field :rating, in: 1..5 %>
+  </div>
+    <br/>
+
+  <div class="field">
+    <%= form.label :coment %>
+    <%= form.text_area :coment %>
+  </div>
+
+  </p>
+  <p>
+    <%= form.submit data: { confirm: 'Do you want to confirm your review' } %>
+  </p>
+  <% end %>
+
 <% elsif user_signed_in? %>
   <%= form_with model: [@movie, @movie.orders.build] do |form| %>
   <p>
@@ -61,6 +84,13 @@
  <br>
 
 <%= link_to 'Back', movies_path %>
+
+<h2>Movies Reviews</h2>
+    <% Review.where(movie_id: @movie.id).each do |review| %>
+        <h5>User Rating: <%= review.rating %></h5>
+        <h5>User comment:</h5>
+        <p><%= review.coment %></p>
+    <% end %>
 
 
 <h2> Recommendation Movies </h2>

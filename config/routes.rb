@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
 resources :movies do
     resources :orders
+    resources :reviews
   end
 
   get 'search', to: 'movies#search'
