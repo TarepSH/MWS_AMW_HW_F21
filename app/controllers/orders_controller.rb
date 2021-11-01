@@ -5,6 +5,8 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
     @orders = Order.where(:user_id => current_user.id)
+    @movie = @orders.last.movie
+    @movieReOrder = Movie.where(vote: @movie.vote-1..@movie.vote+1).order(Arel.sql('RANDOM()')).limit(4)
   end
 
   # GET /orders/1
@@ -12,6 +14,8 @@ class OrdersController < ApplicationController
   def show
     @user = User.find(@order.user_id)
     @movie = Movie.find(@order.movie_id)
+    @movieReOrderShow = Movie.where(vote: @movie.vote-1..@movie.vote+1).order(Arel.sql('RANDOM()')).limit(4)
+
   end
 
   # GET /orders/new

@@ -28,3 +28,24 @@
 <br>
 
 <%= link_to 'New Order', new_order_path %>
+
+<h2> Get personalised recommedndations: </h2>
+
+
+    <% @movieReOrder.each_slice(4) do |movie3| %>
+  <div class="row">
+          <% movie3.each do |movie|%>
+
+    <div class="col-sm ">
+        <div  class="w-100 p-3">
+        <img src="https://www3.nd.edu/~cmc/teaching/cse30332/images/<%= movie.poster %>">
+       <br><h3> <%= movie.title %></h3>
+        <p><%= movie.relese %></p> 
+        <h5><%= movie.vote %> vote </h5>        
+        <%= link_to 'More', movie %>
+        </div>   
+    </div>
+          <% end %>
+
+  </div>    
+    <% end %>
