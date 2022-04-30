@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SVU Homework</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+
+
+  <body>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="#">SVU Homework</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>          
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                    <%= link_to  "Home", root_path , class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                    <%= link_to  "Doctors", doctors_path , class: "nav-link" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to  "Drugs", drugs_path , class: "nav-link" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to  "Patients", patients_path , class: "nav-link" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to  "Pharmacists", pharmacists_path , class: "nav-link" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to  "Prescripations", prescripations_path , class: "nav-link" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to  "Admin", rails_admin_path , class: "nav-link" %>
+                  </li>
+<% if user_signed_in? %>
+  <li class="nav-item">
+ <div class="navbar-text"><%= current_user.email %></div>
+</li>
+  <li class="nav-item">
+  <%= link_to('My Orders', orders_path, class: "nav-link") %>        
+  </li>
+  <li class="nav-item">
+  <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link") %>        
+  </li>
+
+<% else %>
+  <li class="nav-item">
+  <%= link_to('Login', new_user_session_path, class: "nav-link") %>  
+  </li>
+  <li class="nav-item">
+  <%= link_to('Sign up', new_user_registration_path,class: "nav-link")  %>  
+  </li>
+<% end %>             
+ </ul>
+              
+ <form class="d-flex ml-auto" action="/search">
+        <input class="form-control" name="q" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+            </div>
+          
+        </nav>
+    <div class="container">
+        <p class="alert"><%= alert %></p>
+ 
+      <%= yield %>
+    </div>
+    <!-- Footer -->
+<footer class="page-footer font-small py-1 bg-light text-white-50 mt-4">
+    <div class="footer-copyright text-muted text-center py-3"> MWS_AMW_HW_F21 @2021    </div>
+  </footer>
+
+  <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
+
+  <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+  
+  </body>
+</html>
+

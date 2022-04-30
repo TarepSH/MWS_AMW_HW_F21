@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pharmacist:</strong>
+  <%= @prescripation.pharmacist_id %>
+</p>
+
+<p>
+  <strong>Patient:</strong>
+  <%= @prescripation.patient_id %>
+</p>
+
+<p>
+  <strong>Drug:</strong>
+  <%= @prescripation.drug_id %>
+</p>
+
+<p>
+  <strong>Dateofpresc:</strong>
+  <%= @prescripation.dateofpresc %>
+</p>
+
+<%= link_to 'Edit', edit_prescripation_path(@prescripation) %> |
+<%= link_to 'Back', prescripations_path %>
