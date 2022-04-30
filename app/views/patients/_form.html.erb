@@ -1,0 +1,52 @@
+<%= form_with(model: patient, local: true) do |form| %>
+  <% if patient.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
+
+      <ul>
+        <% patient.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :insurancenumber %>
+    <%= form.number_field :insurancenumber %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :quota %>
+    <%= form.number_field :quota %>
+  </div>
+
+  <div class="field">
+    <%= form.label :discountrate %>
+    <%= form.number_field :discountrate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :docotrvisit %>
+    <%= form.number_field :docotrvisit %>
+  </div>
+
+  <div class="field">
+    <%= form.label :paionstartdate %>
+    <%= form.date_select :paionstartdate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :paionenddate %>
+    <%= form.date_select :paionenddate %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

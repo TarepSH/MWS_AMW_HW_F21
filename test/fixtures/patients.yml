@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  insurancenumber: 1
+  name: MyString
+  quota: 1
+  discountrate: 1
+  docotrvisit: 1
+  paionstartdate: 2022-05-01
+  paionenddate: 2022-05-01
+
+two:
+  insurancenumber: 1
+  name: MyString
+  quota: 1
+  discountrate: 1
+  docotrvisit: 1
+  paionstartdate: 2022-05-01
+  paionenddate: 2022-05-01

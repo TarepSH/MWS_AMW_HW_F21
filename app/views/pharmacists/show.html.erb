@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @pharmacist.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @pharmacist.address %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @pharmacist.phone %>
+</p>
+
+<p>
+  <strong>Isactive:</strong>
+  <%= @pharmacist.isactive %>
+</p>
+
+<%= link_to 'Edit', edit_pharmacist_path(@pharmacist) %> |
+<%= link_to 'Back', pharmacists_path %>
