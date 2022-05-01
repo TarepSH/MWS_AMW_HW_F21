@@ -17,8 +17,8 @@
   <tbody>
     <% @doctor_visits.each do |doctor_visit| %>
       <tr>
-        <td><%= doctor_visit.doctor_id %></td>
-        <td><%= doctor_visit.patient_id %></td>
+        <td><%= doctor_visit.doctor_id %> <%= doctor_visit.doctor.name %></td>
+        <td><%= doctor_visit.patient_id %> <%= doctor_visit.patient.name %></td>
         <td><%= doctor_visit.disease %></td>
         <td><%= doctor_visit.fee %></td>
         <td><%= doctor_visit.dateofvisit %></td>

@@ -16,9 +16,9 @@
   <tbody>
     <% @prescripations.each do |prescripation| %>
       <tr>
-        <td><%= prescripation.pharmacist_id %></td>
-        <td><%= prescripation.patient_id %></td>
-        <td><%= prescripation.drug_id %></td>
+        <td><%= prescripation.pharmacist_id %> <%= prescripation.pharmacist.name %></td>
+        <td><%= prescripation.patient_id %> <%= prescripation.patient.name %></td>
+        <td><%= prescripation.drug_id %> <%= prescripation.drug.name %></td>
         <td><%= prescripation.dateofpresc %></td>
         <td><%= link_to 'Show', prescripation %></td>
         <td><%= link_to 'Edit', edit_prescripation_path(prescripation) %></td>
